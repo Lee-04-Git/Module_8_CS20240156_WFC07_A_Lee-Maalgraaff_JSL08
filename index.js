@@ -33,12 +33,19 @@ function showBranchInfo() {
     const branchA = new BankBranch({
         name: 'Branch A',
         location: 'BranchA-Avenue',
-        contact: '666-999',
-        hours: '11am - 9pm'
+        contact: '666-999'
     });
 
-      // Log the branch information
-      console.log('Branch A Info:', branchA.getBranchInfo());
+    console.log('Branch A Info:', branchA.getBranchInfo());
+
+    const branchB = new BankBranch({
+        name: 'Branch B',
+        hours: '6am - 10pm',
+        contact: '123-456'
+    });
+
+    console.log('Branch B Info (should be same as A):', branchB.getBranchInfo());
+
 }
 
 
