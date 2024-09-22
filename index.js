@@ -13,11 +13,18 @@ class BankBranch {
                 hours: branchInfo.hours 
             };
         }
-        return bankBranchInstance;
     }
 
+    // Gets branch information
     getBranchInfo() {
         return bankBranchInstance; // Return the stored instance
+    }
+
+    setBranchInfo(newInfo) {
+        if (newInfo.name) bankBranchInstance.name = newInfo.name;
+        if (newInfo.location) bankBranchInstance.location = newInfo.location;
+        if (newInfo.contact) bankBranchInstance.contact = newInfo.contact;
+        if (newInfo.hours) bankBranchInstance.hours = newInfo.hours;
     }
 
 }
