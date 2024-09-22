@@ -33,6 +33,7 @@ function showBranchInfo() {
     const branchA = new BankBranch({
         name: 'Branch A',
         location: 'BranchA-Avenue',
+        hours: '8am - 6pm',
         contact: '666-999'
     });
 
@@ -40,13 +41,15 @@ function showBranchInfo() {
 
     const branchB = new BankBranch({
         name: 'Branch B',
+        location: 'BranchB-Avenue',
         hours: '6am - 10pm',
         contact: '123-456'
     });
 
-    console.log('Branch B Info (should be same as A):', branchB.getBranchInfo());
-
+    console.log('Are branchA and branchB the same?', branchA === branchB);
 }
+
+ showBranchInfo();
 
 
 
