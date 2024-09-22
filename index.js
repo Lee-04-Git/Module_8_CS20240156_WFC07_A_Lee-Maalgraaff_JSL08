@@ -8,9 +8,9 @@ class BankBranch {
         if(!bankBranchInstance) {
             bankBranchInstance = {
                 name: branchInfo.name,
-                location: branchInfo.location,
-                contact: branchInfo.contact,
-                hours: branchInfo.hours 
+                location: branchInfo.location || 'N/A',
+                contact: branchInfo.contact || 'N/A',
+                hours: branchInfo.hours || 'N/A'
             };
         }
     }
