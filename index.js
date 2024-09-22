@@ -15,6 +15,11 @@ class BankBranch {
         }
         return bankBranchInstance;
     }
+
+    getBranchInfo() {
+        return bankBranchInstance; // Return the stored instance
+    }
+
 }
 
 
