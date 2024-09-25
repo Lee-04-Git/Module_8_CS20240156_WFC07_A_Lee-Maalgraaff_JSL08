@@ -1,35 +1,38 @@
 // This one will be a little tricky. So check out this overview first: https://www.youtube.com/watch?v=sJ-c3BA-Ypo
 
+// stores the single instance of the bank branch
 let bankBranchInstance = null;
 
 class BankBranch {
 
     constructor (branchInfo) {
         if(!bankBranchInstance) {
-            bankBranchInstance = {
-                name: branchInfo.name,
-                location: branchInfo.location || 'N/A',
-                contact: branchInfo.contact || 'N/A',
-                hours: branchInfo.hours || 'N/A'
-            };
+            
+            bankBranchInstance = this;
+
+            this.name = branchInfo.name;
+            this.location = branchInfo.location;
+            this.contact = branchInfo.contact;
+            this.hours = branchInfo.hours;
+            
         }
+        return bankBranchInstance;
     }
 
     // Gets branch information
     getBranchInfo() {
-        return bankBranchInstance; // Return the stored instance
-    }
-
-    setBranchInfo(newInfo) {
-        if (newInfo.name) bankBranchInstance.name = newInfo.name;
-        if (newInfo.location) bankBranchInstance.location = newInfo.location;
-        if (newInfo.contact) bankBranchInstance.contact = newInfo.contact;
-        if (newInfo.hours) bankBranchInstance.hours = newInfo.hours;
+        return {
+            name: this.name,
+            location: this.location,
+            contact: this.contact,
+            hours: this.hours
+        };
     }
 
 }
 
 function showBranchInfo() {
+    // The constructor sees bankBranchInstance is null and creates it with Branch A's info
     const branchA = new BankBranch({
         name: 'Branch A',
         location: 'BranchA-Avenue',
@@ -46,7 +49,10 @@ function showBranchInfo() {
         contact: '123-456'
     });
 
+    console.log('Branch B Info:', branchB.getBranchInfo());
+
     console.log('Are branchA and branchB the same?', branchA === branchB);
+
 }
 
  showBranchInfo();
